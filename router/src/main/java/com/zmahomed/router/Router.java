@@ -221,7 +221,7 @@ public class Router //implements Runnable
 				try 
 				{
 					attachment.client.close();
-					System.out.format("Stopped listening to the Broker %s ID %s%n", attachment.clientAddr, attachment.id);
+					System.out.format("\u001b[31mStopped listening to the Broker %s ID %s%n\u001b[0m", attachment.clientAddr, attachment.id);
 				}
 				catch (IOException ex)
 				{
@@ -334,7 +334,7 @@ private class MarketReadWriteHandler implements CompletionHandler<Integer, Attac
 			try
 			{
 				attachment.client.close();
-				System.out.format("Stopped listening to the Market %s ID %s%n", attachment.clientAddr, attachment.id);
+				System.out.format("\u001b[31mStopped listening to the Market %s ID %s%n\u001b[0m", attachment.clientAddr, attachment.id);
 			}
 			catch (IOException ex)
 			{
