@@ -20,13 +20,14 @@ public class Main
 	int readCount = 0;
     public static void main( String[] args ) throws Exception
     {
+		System.out.println("\u001b[35m----MARKET----\u001b[0m");
 		try
 		{
 			AsynchronousSocketChannel channel = AsynchronousSocketChannel.open();
 			SocketAddress serverAddr = new InetSocketAddress("localhost", 5001);
 			Future<Void> result = channel.connect(serverAddr);
 			result.get();
-			System.out.println("\u001b[32mConnected\u001b[0m");
+			System.out.println("\u001b[32mConnected to Router\u001b[0m");
 			Attachment attach = new Attachment();
 			attach.channel = channel;
 			attach.buffer = ByteBuffer.allocate(2048);
@@ -39,7 +40,7 @@ public class Main
 				msg = readWrite.readFromSoc(attach);
 				if(msg.length() > 0)
 				{
-					System.out.println("Received Message: " + msg);
+					System.out.println("\u001b[33mReceived Message: \u001b[0m" + msg);
 					String returnMsg = readWrite.handleMsg(msg, attach);
 					if (!returnMsg.equalsIgnoreCase("Id updated"))
 					{
@@ -53,7 +54,7 @@ public class Main
 		}
 		catch(Exception e)
 		{
-			System.out.println("Router Not Available");
+			System.out.println("\u001b[31mRouter Not Available\u001b[0m");
 		}
 	}
 }

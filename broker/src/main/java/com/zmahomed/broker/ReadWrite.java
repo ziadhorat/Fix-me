@@ -27,7 +27,7 @@ class ReadWrite
 		attach.buffer.clear();
 		if (attach.channel.read(attach.buffer).get() == -1)
 		{
-			System.out.format("Router unavailable, Shuting Down ...%n");
+			System.out.format("\u001b[31mRouter unavailable, Shuting Down ...%n\u001b[0m");
 			attach.mainThread.interrupt();
 			return("");
 		}
@@ -60,7 +60,7 @@ class ReadWrite
 		attach.buffer.flip();
 		if (attach.channel.write(attach.buffer).get() == -1)
 		{
-			System.out.format("Router unavailable, Shuting Down ...%n");
+			System.out.format("\u001b[31mRouter unavailable, Shuting Down ...%n\u001b[0m");
 			attach.mainThread.interrupt();
 			return;
 		}
@@ -79,7 +79,7 @@ class ReadWrite
 		{
 			if (parts.length == 4)
 			{
-				System.out.println(blue + "Market " + parts[1] + " : " + parts[2] + defaultCl);
+				System.out.println("\u001b[33mMarket " + parts[1] + ": \u001b[0m" + parts[2] + defaultCl);
 			}
 			else if (parts.length == 1)
 			{
@@ -126,7 +126,7 @@ class ReadWrite
 
 	private String getSymbolFromUser() throws Exception
 	{
-		System.out.println("Please enter a Symbol:");
+		System.out.println("Please enter a Stock Symbol:");
 		BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 		String msg = consoleReader.readLine();
 		if (msg.length() == 0)
@@ -136,7 +136,7 @@ class ReadWrite
 
 	private String getTransactionFromUser() throws Exception
 	{
-		System.out.println("Please Select:\n1.Buy\n2.Sell");
+		System.out.println("Please Select:\n1.Buy Stock\n2.Sell Stock");
 		BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 		String msg = consoleReader.readLine();
 		if (msg.length() == 0)
@@ -168,7 +168,7 @@ class ReadWrite
 
 	private String getPriceFromUser() throws Exception
 	{
-		System.out.println("Please enter a Price:");
+		System.out.println("Price of stock($):");
 		BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 		String msg = consoleReader.readLine();
 		if (msg.length() == 0)
@@ -192,7 +192,7 @@ class ReadWrite
 
 	private String getQtyFromUser() throws Exception
 	{
-		System.out.println("Please enter a Quantity:");
+		System.out.println("Quantity of stock:");
 		BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 		String msg = consoleReader.readLine();
 		if (msg.length() == 0)

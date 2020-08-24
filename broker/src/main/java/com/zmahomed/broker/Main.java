@@ -20,13 +20,14 @@ public class Main
 	
     public static void main( String[] args ) throws Exception
     {
+		System.out.println("\u001b[35m----BROKER----\u001b[0m");
 		try
 		{
 			AsynchronousSocketChannel channel = AsynchronousSocketChannel.open();
 			SocketAddress serverAddr = new InetSocketAddress("localhost", 5000);
 			Future<Void> result = channel.connect(serverAddr);
 			result.get();
-			System.out.println("\u001b[32mConnected\u001b[0m");
+			System.out.println("\u001b[32mConnected to Router\u001b[0m");
 			Attachment attach = new Attachment();
 			attach.channel = channel;
 			attach.buffer = ByteBuffer.allocate(2048);
@@ -49,7 +50,7 @@ public class Main
 		}
 		catch(Exception e)
 		{
-			System.out.println("Router Not Available");
+			System.out.println("\u001b[31mRouter Not Available\u001b[0m");
 		}
 	}
 }
