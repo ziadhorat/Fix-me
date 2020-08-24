@@ -2,7 +2,7 @@
 
 A stock exchange simulation using trading algorithms, networking and socket implementations
 
-[TODO: Add build badge]
+![Build](https://github.com/ziadhorat/Fix-me/workflows/Build/badge.svg)
 
 The [Marking Sheet](https://github.com/ziadhorat/Fix-me/blob/master/documentation/fixme.markingsheet.pdf) we are marked against.
 
