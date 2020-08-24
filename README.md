@@ -23,4 +23,9 @@ One rainy day, you find out about the FIX Protocol and decide that you want to m
 
 Compile: `mvn clean package`
 
-Run: `[TODO: Add run command/s]`
+Run: 
+```
+java -jar router/target/router.jar
+java -jar market/target/market.jar
+java -jar broker/target/broker.jar
+```
