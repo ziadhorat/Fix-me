@@ -11,7 +11,7 @@ import java.nio.charset.Charset;
 import java.nio.channels.*;
 import java.util.*;
 
-public class Router //implements Runnable
+public class Router
 {
 	private static int _id;
 	private AsynchronousServerSocketChannel brokerServer;
@@ -25,7 +25,6 @@ public class Router //implements Runnable
 		markets = new HashMap<Integer, Attachment>();
 		try
 		{
-			//Broker Server setup
 			_id = 100000;
 			brokerServer = AsynchronousServerSocketChannel.open();
 			String host = "localhost";
@@ -36,7 +35,6 @@ public class Router //implements Runnable
 
 			this.runBroker();
 
-			//Market Server setup
 			marketServer = AsynchronousServerSocketChannel.open();
 			int marketPort = 5001;
 			InetSocketAddress marketAddr = new InetSocketAddress(host, marketPort);
